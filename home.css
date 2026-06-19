@@ -1,0 +1,238 @@
+/* ==========================================================================
+   1. Design Tokens & Root Settings (2025 Aesthetics Blueprint)
+   ========================================================================== */
+:root {
+    /* Color Palette */
+    --color-mocha-mousse: red; /* Stability */
+    --color-ethereal-blue: #CAF0F8 ; /* Trust */
+    --color-moonlit-grey: #03045e;  /* Refinement */
+    --color-dark-slate: #2C3539;    /* Grounded Base Text */
+    --color-white: #FFFFFF;
+
+    /* Typography Constraints */
+    --font-headings: 'Montserrat', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+}
+
+/* Reset / Base Engine */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: var(--color-moonlit-grey);
+    color: var(--color-dark-slate);
+}
+
+h1, h2, h3 {
+    font-family: var(--font-headings);
+    font-weight: 700;
+    color: var(--color-ethereal-blue);
+}
+
+/* Fluid Responsive Typography using clamp() */
+h1 {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--color-moonlit-grey);
+    color: var(--color-ethereal-blue);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-family: var(--font-headings);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+    filter: brightness(0.9);
+}
+
+/* ==========================================================================
+   2. Layout Components (Mobile-First Architecture)
+   ========================================================================== */
+
+/* Header / Micro Navigation Component (Flexbox) */
+.app-header {
+    background-color: var(--color-ethereal-blue);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.logo {
+    font-family: var(--font-headings);
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--color-moonlit-grey);
+}
+
+/* Responsive Navigation Panel (Mobile State) */
+.nav-container {
+    display: none; /* Controlled via JS state */
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-ethereal-blue);
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.nav-container.active {
+    display: flex;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--color-moonlit-grey);
+    font-weight: 600;
+}
+
+/* Mobile Hamburger Trigger */
+.menu-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-dark-slate);
+    transition: 0.3s ease;
+}
+
+/* Hero Elements */
+.hero-section {
+    background-color: var(--color-moonlit-grey);
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.hero-section p {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    color: var(--color-ethereal-blue);
+}
+
+/* Base Layout Structural Frame (Single Column default) */
+.layout-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.side-panel {
+    background-color: var(--color-white);
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid var(--color-mocha-mousse);
+}
+
+/* Inner Component Content Grid System */
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    background-color: var(--color-ethereal-blue);
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.icon-placeholder {
+    width: 24px;
+    height: 24px;
+    background-color: var(--color-white);
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+/* Footer Element */
+.app-footer {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: var(--color-ethereal-blue);
+    color: var(--color-moonlit-grey);
+    margin-top: 60px;
+}
+
+/* ==========================================================================
+   3. Macro Media Layout Upgrades (Responsive Scales)
+   ========================================================================== */
+
+/* Tablet Optimization Layout Profile */
+@media (min-width: 768px) {
+    .content-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Desktop Scale Structure Realignment (Macro 2D Structure Setup) */
+@media (min-width: 1024px) {
+    .menu-toggle {
+        display: none; /* Suppress hamburger menu */
+    }
+
+    .nav-container {
+        display: flex;
+        flex-direction: row;
+        position: static;
+        width: auto;
+        padding: 0;
+        box-shadow: none;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .nav-links {
+        flex-direction: row;
+        margin-bottom: 0;
+        gap: 25px;
+    }
+
+    /* Convert structural layout into strict 2D format layout using layout metrics */
+    .layout-container {
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        align-items: start;
+    }
+
+    .content-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

@@ -3,49 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IoT Data Monitoring Dashboard</title>
+    <title>My First Static Webpage</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div class="dashboard-container">
-        <header>
-            <h1>IoT Device Monitoring Dashboard</h1>
-            <p>Status: <span id="connection-status" class="status-online">Online</span></p>
-        </header>
 
-        <section class="metrics-grid">
-            <div class="card">
-                <h3>Current Temperature</h3>
-                <p class="reading"><span id="temp-val">0</span>°C</p>
-            </div>
-            <div class="card">
-                <h3>Current Humidity</h3>
-                <p class="reading"><span id="humid-val">0</span>%</p>
-            </div>
+    <header>
+        <h1>Welcome to My Project</h1>
+        <p>A clean, responsive static webpage built from scratch.</p>
+    </header>
+
+    <main>
+        <section class="content-section">
+            <h2>About This Project</h2>
+            <p>This page demonstrates the fundamentals of HTML structure and CSS styling. By separating content from design, we create a seamless user experience.</p>
         </section>
 
-        <section class="chart-container">
-            <h3>Live Sensor Telemetry (Last 10 readings)</h3>
-            <canvas id="iotChart"></canvas>
+        <section class="content-section image-gallery">
+            <h2>Visual Showcase</h2>
+            <img src="https://via.placeholder.com/600x300" alt="Placeholder graphic showcasing web design" class="responsive-img">
         </section>
+    </main>
 
-        <section class="table-container">
-            <h3>Recent Data Logs</h3>
-            <table id="data-table">
-                <thead>
-                    <tr>
-                        <th>Timestamp</th>
-                        <th>Temperature (°C)</th>
-                        <th>Humidity (%)</th>
-                    </tr>
-                </thead>
-                <tbody id="table-body">
-                    </tbody>
-            </table>
-        </section>
-    </div>
+    <footer>
+        <p>&copy; 2026 My Web Design Project. Built with HTML & CSS.</p>
+    </footer>
 
-    <script src="app.js"></script>
-</body>
+    </body>
 </html>
