@@ -1,0 +1,104 @@
+/* ==========================================
+   1. BASE STYLES & MOBILE CORE (0px - 480px)
+   ========================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: #f4f7f6;
+  color: #333;
+}
+
+/* Mobile Navigation: Stacked Layout */
+.navbar {
+  display: flex;
+  flex-direction: column; /* Stacks navigation items vertically on mobile */
+  align-items: center;
+  padding: 1rem;
+  background-color: #1a252f;
+  color: #fff;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  list-style: none;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.nav-links li {
+  margin: 0.5rem 0;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Mobile Grid Content: Single Column Specialist */
+.container {
+  display: flex;
+  flex-direction: column; /* Vertically stacked on mobile */
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+.card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+/* ==========================================
+   2. TABLET ENHANCEMENTS (>= 768px)
+   ========================================== */
+@media (min-width: 768px) {
+  /* Transform Nav to horizontal row */
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+  }
+
+  .nav-links {
+    flex-direction: row; /* Flexbox horizontal shift */
+    width: auto;
+    margin-top: 0;
+  }
+
+  .nav-links li {
+    margin: 0 1rem;
+  }
+
+  /* Two-column structural adjustment for cards */
+  .container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .card {
+    flex: 1 1 calc(50% - 1.5rem); /* Splits layout into two columns */
+  }
+}
+
+/* ==========================================
+   3. DESKTOP ADVANCED EXPANSION (>= 1024px)
+   ========================================== */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1200px;
+    margin: 0 auto; /* Centers the canvas layout on large monitors */
+  }
+
+  .card {
+    flex: 1; /* Automatically spreads cards into equal three columns */
+  }
+}
